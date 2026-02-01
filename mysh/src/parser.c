@@ -1,35 +1,23 @@
-#include <parser.h>
+#include "parser.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include "tokenizer.h"
 
-int initialize(command* cmd){
-    cmd->argv = calloc(MAX_ARGS + 1, sizeof(char*));
-    if(cmd->argv == NULL){
-        return -1;
-    }
-    cmd->argc = 0;
-    return 0;
-}
+
 command *parse_line(char* line){
-    int i = 0;
-    int length = 0;
-    char * word = NULL;
-    command* result = calloc(1, sizeof(command));
-    initialize(result);
-    
-    while(line[i] != '\n'){
-        if(line[i] == ' '){
-            word = strndup(&line[i-length], length);
-            length = 0;
-            result->argv[result->argc++]= word;
-        }
-        else{
-            length++;
-        }
-        i++;
-    }
-    return &result;
+    command *result = calloc(1, sizeof(command));
+    if(!result) return NULL;
+    result->argv = tokenize(line, &result->argc);
+    return result;
 
 }
+void free_command(command *cmd){
+    for(int i =0; cmd->argv[i] != NULL; i++){
+        free(cmd->argv[i]);
+    }
+    free(cmd->argv);
+}
     
+
 
