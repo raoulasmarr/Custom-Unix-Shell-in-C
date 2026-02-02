@@ -49,14 +49,29 @@ What I Learned
 
 This project helped solidify my understanding of how user-space programs interface with the operating system.
 
+⸻
 
 Build & Run
 Simple! just type these lines in your terminal
 
-1. make
-2. ./mysh
-3. make clean
+Clone this repository:
 
+git clone https://github.com/yourusername/Custom-Unix-Shell-in-C.git
+cd Custom-Unix-Shell-in-C
+
+Build the shell using the provided Makefile:
+
+make
+
+Run the shell:
+
+./mysh
+
+Clean build artifacts:
+
+make clean
+
+⸻
 
 Example of Code Functioning
 
@@ -66,6 +81,8 @@ mysh> cd src
 mysh> ls
 parser.c tokenizer.c executer.c
 mysh> exit
+
+⸻
 
 Future Improvements
 	•	Support for pipes (|) to allow chaining commands between processes
