@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iinclude -g
 TARGET = mysh
 LDFLAGS = 
-SRCS = src/main.c src/parser.c src/executer.c src/builtins.c
+SRCS = src/main.c src/parser.c src/executer.c src/builtins.c src/tokenizer.c 
 
 OBJS = $(SRCS:.c=.o)
 

@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include "tokenizer.h"
 
+// Tokenizer splits the input line using whitespace delimiters,then dynamically
+// allocates memory for each token, and returns both the argument count and
+// argument vector. The caller is responsible for freeing the returned array
+// and each allocated token.
 char **tokenize(char *line,int *argc){
     char **result = calloc(MAX_ARGS+1, sizeof(char *));
     if(result == NULL)
